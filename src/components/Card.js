@@ -1,21 +1,26 @@
 import React from 'react'
 import { Link  } from "react-router-dom";
-function Card({poster_path,title,id}) {
+function Card({poster_path,title,id,overview,media_type,name}) {
   return (
-    <div className='card'>
-      <Link className='link-to-detail-film' to={`/movie/${id}`}>
-        <h3>{title}</h3>
+ 
+    <Link className='link-to-detail-film' to={`/${media_type}/${id}`}>
+      <div className='card'>
+      
         <div className="img-film">
           {poster_path ?  
-          <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" /> :
-          <div className="error-img">
-            <h4>Immagine mancante</h4>
-            <img src={`https://blumagnolia.ch/wp-content/uploads/2021/05/placeholder-126.png`} alt="" />
-          </div>
-        }
+            <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" /> :
+            <div className="error-img">
+              <h4>Immagine mancante</h4>
+              <img src={`https://blumagnolia.ch/wp-content/uploads/2021/05/placeholder-126.png`} alt="" />
+            </div>
+          }
         </div>
-      </Link>
-    </div>
+        <div className='details-card'>
+          <h3>{title || name}</h3>
+          <p>{overview.length > 390 ? overview.slice(0, 390) + '...' : overview ? overview :'Trama Ita Mancante' }</p>
+        </div>
+      </div>
+    </Link>
   )
 }
 

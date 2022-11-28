@@ -1,20 +1,26 @@
 import React, { useEffect } from 'react'
-import { fetchDataId } from './redux/reducers/api-reducer';
+import { fetchDataId,fetchTvId } from './redux/reducers/api-reducer';
 import {useSelector,useDispatch} from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import Loader from './components/Loader';
 function DetailFilm() {
-  const {id}=useParams();
+  const {id,type}=useParams();
   const {films} = useSelector(state => state)
   const {loading,detailFilm} = films;
   const dispatch = useDispatch();
+  const navigate  = useNavigate();
   useEffect(()=>{
     
-    dispatch(fetchDataId(id,localStorage.ricerca))
     
+    if(type==='movie'){
+      dispatch(fetchDataId(id,localStorage.ricerca));
+    }
+    if(type==='tv'){
+      dispatch(fetchTvId(id));
+      
+    }
   },[])
   
   const checkBackgroundImage = detailFilm.backdrop_path ? `url(https://image.tmdb.org/t/p/original/${detailFilm?.backdrop_path})` : '';
@@ -34,22 +40,23 @@ function DetailFilm() {
           }}>
           <div className={checkBackgroundImage ? 'overlay' : 'overlay2'}>
             <div className='film-text'>
-              <h2 className='title'>{detailFilm.title}</h2>
+              <h2 className='title'>{detailFilm.title || detailFilm.name }</h2>
 
               {detailFilm.genres?.map((el)=>{
                 return <span className='genres-film' key={el.id}> {el.name} </span>
               })}
+            
               <div className='score'> <span>Score : {detailFilm.vote_average || "voto mancante"} </span> </div>
               <p className='overview'>{detailFilm.overview || "trama mancante"}</p>
             </div>
-            <Link to={`/movies/${localStorage.ricerca}/${localStorage.pagina}`}>
+            <div onClick={()=>{navigate(-1)}} >
               <button style={{backgroundImage: checkBackgroundImage}} className='button-back'>
                 <div className="overlay-button">
                   <FontAwesomeIcon className='arrow-back' icon={faArrowLeft} />
                 </div>
               
               </button>
-            </Link>
+            </div>
             
           </div>
 

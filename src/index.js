@@ -18,20 +18,21 @@ import {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  // <React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path='/movies/:query/:page' element= {<Films />} />
-          <Route path='/movie/:id' element= {<DetailFilm />} />
+          <Route path='/:type/:id' element= {<DetailFilm />} />
+      
           <Route path='*' element={<ErrorScreen />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
     </Provider>
-  // </React.StrictMode>
+  </React.StrictMode>
 
 );
 
