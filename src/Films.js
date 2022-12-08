@@ -53,10 +53,10 @@ function Films() {
     useEffect(()=>{
       
       if(dataFilms.length < 1){
-        dispatch(fetchData(`?query=${query}&page=${page}`,query))
+        dispatch(fetchData(`&query=${query}&page=${page}`,query))
       }
       if(dataFilms.length >= 1){
-        dispatch(fetchData(`?query=${query}&page=${page}`,query))
+        dispatch(fetchData(`&query=${query}&page=${page}`,query))
       }
     },[page,query])
     useEffect(()=>{
