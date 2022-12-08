@@ -163,7 +163,7 @@ export const fetchData = (name,nameQuery)=> async (dispatch)=>{
     dispatch(cleanError());
     try {
         
-        const responseFilm = await axios.get(`http://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT&page=1&query=${nameQuery}`);
+        const responseFilm = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT&page=1&query=${nameQuery}`);
         
         const responseSeries = await instanceTv.get(name);
       
