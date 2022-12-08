@@ -24,7 +24,7 @@ root.render(
         <Header />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path='/movies/:query/:page' element= {<Films />} />
+          <Route path='/movies/:queryName/:page' element= {<Films />} />
           <Route path='/:type/:id' element= {<DetailFilm />} />
       
           <Route path='*' element={<ErrorScreen />} />

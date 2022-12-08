@@ -11,12 +11,12 @@ import { useState } from 'react';
 function Films() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {query,page} = useParams();
+    const {queryName,page} = useParams();
     const {films} = useSelector(state => state)
     const {qtyFilms,qtySeries} = films.infoData;
     const {loading,error,dataFilms,dataSeries,choiceFilmSerie} = films;
     const {totalPages,totalPagesSeries} = useSelector(state=>state.films.infoData);
-    const [name,setName] = useState(query);
+    const [name,setName] = useState(queryName);
     const [customHeight,setCustomHeight] = useState(false);
   
     const searchNameFilm = (e)=>{
@@ -53,12 +53,12 @@ function Films() {
     useEffect(()=>{
       
       if(dataFilms.length < 1){
-        dispatch(fetchData(`&query=${query}&page=${page}`,query))
+        dispatch(fetchData(`&query=${queryName}&page=${page}`,queryName))
       }
       if(dataFilms.length >= 1){
-        dispatch(fetchData(`&query=${query}&page=${page}`,query))
+        dispatch(fetchData(`&query=${queryName}&page=${page}`,queryName))
       }
-    },[page,query])
+    },[page,queryName])
     useEffect(()=>{
       dispatch(choice(localStorage.choice ? localStorage.choice : 'Films' ))
     },[])
@@ -85,12 +85,12 @@ function Films() {
           <div className='detail'>
             <div className='search-result'>Search Result</div>
             <div className='films-series'>
-              <Link  to={`/movies/${query}/1`} className={`link-film ${(choiceFilmSerie ==='Films' && dataFilms.length > 1) ? 'active-detail' :''}`} onClick={()=>{dispatch(choice('Films'))}}>
+              <Link  to={`/movies/${queryName}/1`} className={`link-film ${(choiceFilmSerie ==='Films' && dataFilms.length > 1) ? 'active-detail' :''}`} onClick={()=>{dispatch(choice('Films'))}}>
                 <div>{loading ? 'Serie Tv' : !loading && dataFilms.length > 1 ? 'Films' : 'Nessun Film Trovato'}</div>
                 <div className='qty'>  {loading ? "0" : qtyFilms}</div>
                 
               </Link>
-              <Link to={`/movies/${query}/1`} className={`link-film ${choiceFilmSerie==='Series' && dataSeries.length > 1 ? 'active-detail' :''} ${qtySeries > 1 ? '' : "no-click"}`} onClick={()=>{dispatch(choice('Series'))}}>
+              <Link to={`/movies/${queryName}/1`} className={`link-film ${choiceFilmSerie==='Series' && dataSeries.length > 1 ? 'active-detail' :''} ${qtySeries > 1 ? '' : "no-click"}`} onClick={()=>{dispatch(choice('Series'))}}>
                 <div>{loading ? 'Serie Tv' : !loading && dataSeries.length > 1 ? 'Serie Tv' : 'Nessuna Serie Trovata'}</div>
                 <div className={`qty ${qtySeries > 1 ? '' :{cursorPointer:'none'} }`}>  {!loading && qtySeries > 1 ? qtySeries  :'0' }</div>
               </Link>

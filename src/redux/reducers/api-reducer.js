@@ -157,17 +157,17 @@ const {startLoading,singleFilm,setQuery,checkInfoFilms,stopLoading,saveData,catc
 const {reducer} = apiSlice;
 export const {increasePage,decreasePage,resetFilms,pageNotFound,choice} = apiSlice.actions;
 
-export const fetchData = (queryNamePage,nameFilmsInput)=> async (dispatch)=>{
+export const fetchData = (query,name)=> async (dispatch)=>{
 
     dispatch(startLoading());
     dispatch(cleanError());
     try {
         
-        const responseFilm = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT${queryNamePage}`);
+        const responseFilm = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT${query}`);
         
-        const responseSeries = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT${queryNamePage}`);
+        const responseSeries = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT${query}`);
       
-        dispatch(setQuery(nameFilmsInput));
+        dispatch(setQuery(name));
         dispatch(saveData([responseFilm.data.results,responseSeries.data.results]));
         
         const pagionationInfo = {
@@ -199,14 +199,14 @@ export const fetchData = (queryNamePage,nameFilmsInput)=> async (dispatch)=>{
     dispatch(stopLoading())
     
     }
-export const fetchDataId = (id,nameFilmsInput)=> async (dispatch)=>{
+export const fetchDataId = (id,name)=> async (dispatch)=>{
     dispatch(startLoading());
     dispatch(cleanError());
     
     
     try {
         const response = await instanceId.get(id);
-        dispatch(setQuery(nameFilmsInput));
+        dispatch(setQuery(name));
         dispatch(singleFilm(response.data));
         
         
