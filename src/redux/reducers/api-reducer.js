@@ -165,7 +165,7 @@ export const fetchData = (name,nameQuery)=> async (dispatch)=>{
         
         const responseFilm = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT&page=1&query=${nameQuery}`);
         
-        const responseSeries = await axios.get(`http://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT&page=1&query=${nameQuery}`);
+        const responseSeries = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it-IT&page=1&query=${nameQuery}`);
       
         dispatch(setQuery(nameQuery));
         dispatch(saveData([responseFilm.data.results,responseSeries.data.results]));
