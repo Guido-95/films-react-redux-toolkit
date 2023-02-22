@@ -17,7 +17,7 @@ function Card({poster_path,title,id,overview,media_type,name}) {
         </div>
         <div className='details-card'>
           <h3>{title || name}</h3>
-          <p>{overview.length > 390 ? overview.slice(0, 390) + '...' : overview ? overview :'Trama Ita Mancante' }</p>
+          <p>{overview ? overview : "" ? "":'Trama Ita Mancante' }</p>
         </div>
       </div>
     </Link>

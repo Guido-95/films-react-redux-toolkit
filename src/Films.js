@@ -63,7 +63,7 @@ function Films() {
       dispatch(choice(localStorage.choice ? localStorage.choice : 'Films' ))
     },[])
     
-    const styleDisplayFlex = dataFilms.length >= 1 ? {display:'flex',flexDirection:'column', flexWrap:'wrap'} : {width:'100%',display:'flex',alignItems:'center'}
+    const styleDisplayFlex = dataFilms.length >= 1 ? {display:'flex',flexDirection:'column'} : {width:'100%',display:'flex',alignItems:'center'}
    
   return (
     <div className={`films ${customHeight ? 'customHeigth' :''}`}>
@@ -85,14 +85,14 @@ function Films() {
           <div className='detail'>
             <div className='search-result'>Search Result</div>
             <div className='films-series'>
-              <Link  to={`/movies/${queryName}/1`} className={`link-film ${(choiceFilmSerie ==='Films' && dataFilms.length > 1) ? 'active-detail' :''}`} onClick={()=>{dispatch(choice('Films'))}}>
-                <div>{loading ? 'Serie Tv' : !loading && dataFilms.length > 1 ? 'Films' : 'Nessun Film Trovato'}</div>
+              <Link  to={`/movies/${queryName}/1`} className={`link-film ${(choiceFilmSerie ==='Films' && dataFilms.length >= 1) ? 'active-detail' :''}`} onClick={()=>{dispatch(choice('Films'))}}>
+                <div>{loading ? 'Serie Tv' : !loading && dataFilms.length >= 1 ? 'Films' : 'Nessun Film Trovato'}</div>
                 <div className='qty'>  {loading ? "0" : qtyFilms}</div>
                 
               </Link>
-              <Link to={`/movies/${queryName}/1`} className={`link-film ${choiceFilmSerie==='Series' && dataSeries.length > 1 ? 'active-detail' :''} ${qtySeries > 1 ? '' : "no-click"}`} onClick={()=>{dispatch(choice('Series'))}}>
-                <div>{loading ? 'Serie Tv' : !loading && dataSeries.length > 1 ? 'Serie Tv' : 'Nessuna Serie Trovata'}</div>
-                <div className={`qty ${qtySeries > 1 ? '' :{cursorPointer:'none'} }`}>  {!loading && qtySeries > 1 ? qtySeries  :'0' }</div>
+              <Link to={`/movies/${queryName}/1`} className={`link-film ${choiceFilmSerie==='Series' && dataSeries.length >= 1 ? 'active-detail' :''} ${qtySeries >= 1 ? '' : "no-click"}`} onClick={()=>{dispatch(choice('Series'))}}>
+                <div>{loading ? 'Serie Tv' : !loading && dataSeries.length >= 1 ? 'Serie Tv' : 'Nessuna Serie Trovata'}{dataSeries.length > 1}</div>
+                <div className={`qty ${qtySeries >= 1 ? '' :{cursorPointer:'none'} }`}>  {!loading && qtySeries >= 1 ? qtySeries  :'0' }</div>
               </Link>
             </div>
           </div>

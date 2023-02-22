@@ -192,11 +192,14 @@ body {
 }
 .details-films-tv{
   display: flex;
+  min-height: calc(100vh - 250px);
+  /* background-color: yellow; */
+  justify-content: space-around;
   width: 70%;
   margin: auto;
 }
 .details-container{
-  width: 20%;
+  min-width: 20%;
   margin-top: 20px;
 }
 .detail{
@@ -242,7 +245,7 @@ body {
 }
 .customHeigth{
   
-  height: calc(100vh - 100px);
+  /* height: calc(100vh - 100px); */
 }
 
 .loader-container{
@@ -277,27 +280,45 @@ body {
 
 header{
   height: 80px;
-  background-color: #1870aa;
-}
-
-.logo-container{
-  height: 100%;
-  width: 75%;
-  margin: auto;
-  display: flex;
+  background-color: #35aeff;
+  
+  display:flex;
+  justify-content: space-between;
   align-items: center;
 }
-.terms{
+.logo-terms{
   width: 75%;
-  /* background-color: green; */
+  height: 100%;
+  margin: auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-terms .logo{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.logo-container{
+  height: 100%;
+  /* margin: auto;
+  display: flex;
+  align-items: center; */
+}
+.terms{
+  height: 100%;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
   color: whitesmoke;
+  background-color: rgb(17, 140, 180);
 }
 .img-terms{
   width: 150px;
   margin-left: 50px;
+  
 }
 .logo-link{
   height: 100%;
@@ -305,18 +326,18 @@ header{
   display: flex;
   align-items: center;
   text-decoration:none;
-  width: 22%;
+  width: 100%;
   padding: 5px 50px;
   transition: 0.2s;
-  background-color: #3892ce;
+  /* background-color: #3892ce; */
 }
 .logo-link:hover{
   
   background-color: #74bcec;
 }
 .logo-link div{
-  display: inline-block;
-  margin-left: 20px;
+  /* display: inline-block;
+  margin-left: 20px; */
   font-size: 20px;
   color: white;
 }
@@ -351,6 +372,7 @@ footer{
 .input-container-films{
   width: 65%;
   height: 50px;
+  padding-left: 25px;
   margin: auto;
   display: flex;
   
@@ -367,18 +389,27 @@ footer{
 }
 
 .films-cards-container{
-  position: relative;
+  /* justify-content: space-around; */
   border-radius: 10px;
-  width: 90%;
-  margin: 0px auto 50px auto;
-  height: 100%; 
+  width: 70%;
+  margin-bottom:50px;
 }
 .card{
   display: flex;
+  height: 100%;
   border-radius: 10px;
   overflow: hidden;
   background-color: white;
   color: black !important;
+  
+}
+.card p {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   
 }
 .card  h3{
@@ -387,8 +418,10 @@ footer{
   height: 50px;
 }
 .link-to-detail-film{
+  height: 141px;
+
   box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
-  margin: 20px;
+  margin-bottom: 20px;
   text-decoration: none;
   border-radius: 20px;
   color: white;
@@ -403,17 +436,17 @@ footer{
   border: 1px solid black;
 }
 .img-film{
-  height: 150px;
-  width: 100px;
-  
+  width: 15%;
+  height: 100%;
 }
 .img-film > img{
   width: 100%;
   height: 100%;
-  
+  object-fit:fill;
+  display: block;
 }
 .details-card{
-  width: 100%;
+  width: 85%;
   padding:10px;
  
 }
@@ -550,17 +583,17 @@ footer{
   color: lightgrey;
 }
 .detail-film{
- width: 100%;
- height: 100%;
-  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 180px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
 }
 .detail-film-container{
-
-  height: calc(100vh - 180px);
+  
+  min-height: calc(100vh - 180px);
+  
   
 }
 .genres-film{
@@ -577,20 +610,18 @@ footer{
  
 }
 .overlay{
-  position: absolute;
-  height: 100%;
+  min-height: calc(100vh - 180px);
+ 
   width: 100%;
-  top: 0;
-  left: 0;
+  padding-bottom: 50px;
   background-color: rgba(0,0,0,0.8);
 
 }
 .overlay2{
-  position: absolute;
-  height: 100%;
+  min-height: calc(100vh - 180px);
+  
   width: 100%;
-  top: 0;
-  left: 0;
+  padding-bottom: 50px;
   background-color: rgba(0,0,0,0.2);
 }
 .film-text{
@@ -625,22 +656,20 @@ footer{
   position: relative;
   background-size: cover;
   background-position: center;
-
   display: block;
   padding: 20px;
   margin: auto;
   width: 200px;
   height: 100px;
   border: 5px solid black;
-  font-size: 15px;
   border-radius: 25px;
   cursor: pointer;
   background-color: rgba(0,0,0,0.8);
 }
 .arrow-back{
-  color: white;
-
+  
   font-size: 50px;
+  color: white;
   
 }
 
@@ -671,5 +700,93 @@ footer{
   } */
   .button-pages{
     display: none;
+  }
+ }
+
+ @media (max-width: 991px) {
+  .logo-terms .logo{
+    width: 35px;
+    height:35px;
+    margin-right: 10px;
+  }
+  .logo-terms > .logo-container div{
+    font-size: 15px;
+  }
+  .terms{
+    padding: 0;
+    font-size: 10px;
+  }
+  .terms .img-terms{
+   margin: 0;
+   width: 70px;
+  }
+  .film-text .title{
+    font-size: 30px;
+  }
+  .film-text .overview{
+    font-size: 20px;
+  }
+  .genres-film{
+    display: inline-block;
+    margin: 0px 10px 0px 0px;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #3892ce;
+  }
+  .film-text{
+    padding: 25px;
+    width: 100vw;
+    /* margin: auto; */
+  }
+  .button-back{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    padding: 20px;
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    border: 5px solid black;
+    font-size: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .arrow-back{
+    
+    font-size: 30px;
+    color: white;
+  
+  }
+  .link-to-detail-film{
+    height: 150px;
+ 
+    
+    
+  }
+  .img-film{
+    width: 25%;
+    height: 100%;
+  }
+  .details-films-tv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .details-container{
+    width: 80%;
+    margin-bottom: 20px;
+    
+  }
+  .detail{
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    overflow: hidden;
+  
   }
  }

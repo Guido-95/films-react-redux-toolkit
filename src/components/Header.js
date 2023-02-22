@@ -33,13 +33,17 @@ function Header() {
   }
   return (
     <header className="header">
-      <div className="logo-container">
-        <Link to="/" className='logo-link' onClick={resetPage}><img className='logo' alt='logo' src={logo} />
-          <div>
-            React Films
-          </div>
-         
-        </Link>
+      <div className="logo-terms">
+        <div className="logo-container">
+          <Link to="/" className='logo-link' onClick={resetPage}>
+            <img className='logo' alt='logo' src={logo} />
+            <div>
+              React Films
+            </div>
+          
+          </Link>
+        
+        </div>
         <div className='terms'>
 
           This product uses the TMDB API but is not endorsed or certified by TMDB.
@@ -49,7 +53,7 @@ function Header() {
           </a>
         </div> 
       </div>
-    
+     
     </header>
   )
 }
