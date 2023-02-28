@@ -688,7 +688,6 @@ footer{
 
 .error-screen{
   display: flex;
-  margin-top: 80px;
   height:calc(100vh - 180px);
   background-color: #66b9f0;;
 }
@@ -808,7 +807,11 @@ footer{
     padding: 10px;
   }
   header{
+    height: 120px;
     position: relative;
+  }
+  .logo-link{
+    padding-bottom: 25px;
   }
   .categories-film{
     width: 100%;
@@ -830,7 +833,7 @@ footer{
   .terms{
     position: absolute;
     height: 40px;
-    bottom: -40px;
+    bottom: 0px;
     width: 100%;
     justify-content: space-around;
   }
@@ -840,5 +843,14 @@ footer{
   .logo-link:hover{
   
     background-color: #35aeff;
+  }
+  .details-card h3 {
+    font-size: 14px;
+  }
+  .details-card p {
+    font-size: 12px;
+  }
+  .error-screen{
+    margin-top: 0px;
   }
 }
