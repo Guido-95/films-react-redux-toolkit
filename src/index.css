@@ -796,6 +796,9 @@ footer{
   .home{
     width: 100%;
   }
+  .overlay{
+    padding-top: 50px;
+  }
   .logo-link{
   
     /* transition: none; */
@@ -809,8 +812,6 @@ footer{
   }
   .categories-film{
     width: 100%;
-    
-
   }
   .categories-films-container h4{
     margin-right: 5px;
