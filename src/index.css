@@ -694,16 +694,8 @@ footer{
 }
 
 
-@media (max-width: 768px) {
-  /* .logo-link{
-    display: none;
-  } */
-  .button-pages{
-    display: none;
-  }
- }
 
- @media (max-width: 991px) {
+@media (max-width: 991px) {
   .logo-terms .logo{
     width: 35px;
     height:35px;
@@ -789,4 +781,56 @@ footer{
     overflow: hidden;
   
   }
- }
+}
+
+@media (max-width: 768px) {
+  /* .logo-link{
+    display: none;
+  } */
+  .button-pages{
+    display: none;
+  }
+}
+
+@media (max-width: 501px) {
+  .home{
+    width: 100%;
+  }
+  .logo-link{
+  
+    /* transition: none; */
+
+  }
+  section{
+    padding: 10px;
+  }
+  header{
+    position: relative;
+  }
+  .categories-film{
+    width: 100%;
+    
+
+  }
+  .categories-films-container h4{
+    margin-right: 5px;
+  }
+  .intestation-home h2{
+    font-size: 40px;
+  }
+  .intestation-home h4{
+    font-size: 25px;
+  }
+  .logo-terms{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .terms{
+    position: absolute;
+    height: 40px;
+    bottom: -40px;
+    width: 100%;
+    justify-content: space-around;
+  }
+}
