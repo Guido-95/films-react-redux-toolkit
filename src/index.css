@@ -834,6 +834,9 @@ footer{
     width: 100%;
     justify-content: space-around;
   }
+  .genres-film{
+    margin-bottom: 10px;
+  }
   .logo-link:hover{
   
     background-color: #35aeff;
