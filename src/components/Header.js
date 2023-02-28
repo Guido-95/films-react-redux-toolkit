@@ -38,7 +38,7 @@ function Header() {
           <Link to="/" className='logo-link' onClick={resetPage}>
             <img className='logo' alt='logo' src={logo} />
             <div>
-              React Films
+              React Movies
             </div>
           
           </Link>
