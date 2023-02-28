@@ -834,4 +834,8 @@ footer{
     width: 100%;
     justify-content: space-around;
   }
+  .logo-link:hover{
+  
+    background-color: #35aeff;
+  }
 }
