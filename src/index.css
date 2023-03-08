@@ -605,9 +605,9 @@ footer{
   background-color: #3892ce;
 }
 .loader-detail-film{
-
-  height: 100%;
- 
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 180px);
 }
 .overlay{
   min-height: calc(100vh - 180px);
