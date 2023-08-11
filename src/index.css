@@ -793,6 +793,11 @@ footer{
 }
 
 @media (max-width: 501px) {
+  *{
+
+    cursor: none !important;
+    
+  }
   .home{
     width: 100%;
   }
@@ -804,6 +809,7 @@ footer{
     /* transition: none; */
 
   }
+ 
   section{
     padding: 10px;
   }
@@ -817,8 +823,12 @@ footer{
   .categories-film{
     width: 100%;
   }
+  .categories-films-container {
+    display: flex;
+    flex-direction: column;
+  }
   .categories-films-container h4{
-    margin-right: 5px;
+    margin-bottom: 25px;
   }
   .intestation-home h2{
     font-size: 40px;
